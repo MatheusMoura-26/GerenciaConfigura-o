@@ -3,7 +3,64 @@
 Projeto simples de uma aplicação web para gerenciamento de contas bancárias, com backend em Spring Boot e frontend em React + TypeScript.
 
 ---
+## Diagrama de Classes
+  
+```mermaid
+classDiagram
+    class User {
+        +string profilePicture
+        +string accountCreationDate
+        +Long id (DTO)
+        +string name (DTO)
+        +string email (DTO)
+        +string phone (DTO)
+        +string cpf (DTO)
+        +LocalDate birthDate(DTO)
+        +string password(DTO)
+    }
 
+    class Account {
+        +double accountLimit
+        +string accountNumber(DTO)
+        +string accountAgency(DTO)
+        +double accountBalance(DTO)
+    }
+
+    class Card {
+        +LocalDate expirationDate
+        +string cvv
+        +Long id(DTO)
+        +string number(DTO)
+        +BigDecimal limit(DTO)
+    }
+
+    class LimitManagement {
+        +Long id(DTO)
+        +double maxLimitAllowed(DTO)
+        +double requestedIncrease(DTO)
+        +double increaseStatus(DTO)
+    }
+
+    class FinancialGoal {
+        +Long id(DTO)
+        +double goalAmount(DTO)
+        +double savedAmount(DTO)
+        +double remainingAmount(DTO)
+    }
+
+    class News {
+        +Long id(DTO)
+        +string title(DTO)
+        +string content(DTO)
+    }
+
+    User "1" --> "1" Account
+    User "1" --> "1" Card
+    User "1" --> "1" LimitManagement
+    User "1" --> "1" FinancialGoal
+    User "1" --> "0..*" News
+```
+---
 ## 🧱 Arquitetura do Projeto
 
 ### 🔧 Backend - Spring Boot
