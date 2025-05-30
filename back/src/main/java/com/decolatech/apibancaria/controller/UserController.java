@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Usuário")
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "*")
 public class UserController {
 
     private final IUserService userService;
