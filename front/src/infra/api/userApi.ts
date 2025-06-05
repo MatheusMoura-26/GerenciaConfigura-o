@@ -2,6 +2,10 @@ import { api } from './axios';
 import { User } from '../../domain/entities/User';
 
 export const UserRepository = {
+  async getAll() {
+    return api.get('/users')
+  },
+
   async create(user: User & { confirmPassword: string }) {
     return api.post('/users', {
       name: user.name,
