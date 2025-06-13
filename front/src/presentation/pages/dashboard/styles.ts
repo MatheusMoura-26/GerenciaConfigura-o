@@ -1,36 +1,35 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const Container = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: 'Inter', sans-serif;
-`;
+export const DashboardContainer = styled.div`
+  display: flex;
+    height: 100%;
+  height: 100vh;
+  width: 100%;
+   margin: 0;
+  padding: 0;
+`
+export const MainContent = styled.div`
+  flex: 1;
+  padding: 30px;
+  background-color: #f4f4f4;
+`
 
-export const Title = styled.h1`
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 2rem;
-  text-align: center;
-`;
+export const Title = styled.h2`
+  margin-bottom: 20px;
+`
 
-export const Section = styled.section`
-  background: #ffffff;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
+export const Card = styled.div`
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+`
 
-  h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 0.75rem;
-  }
-`;
+export const NewsList = styled.ul`
+  padding-left: 20px;
+`
 
-export const Placeholder = styled.p`
-  color: #64748b;
-  font-size: 1rem;
-`;
+export const NewsItem = styled.li`
+  margin-bottom: 10px;
+`

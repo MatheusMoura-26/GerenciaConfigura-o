@@ -6,6 +6,10 @@ export const UserRepository = {
     return api.get('/users')
   },
 
+  async getById(id: number) {
+    return api.get(`/users/${id}`)
+  },
+
   async create(user: User & { confirmPassword: string }) {
     return api.post('/users', {
       name: user.name,
