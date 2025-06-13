@@ -4,6 +4,7 @@ import { LoginPage } from '../presentation/pages/login';
 import { DashboardPage } from '../presentation/pages/dashboard';
 import { FinancialGoalsPage } from '../presentation/pages/financialGoals';
 import { AccountCardPage } from '../presentation/pages/accountCard';
+import { UserProfilePage } from '../presentation/pages/user';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/financial-goals" element={<FinancialGoalsPage />} />
         <Route path='/acount-user' element={<AccountCardPage />} />
+        <Route path="/user-profile" element={<UserProfilePage />} />
       </Routes>
     </Router>
   );
