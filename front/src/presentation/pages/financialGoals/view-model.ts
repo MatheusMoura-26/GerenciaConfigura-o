@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { FinancialGoal } from '../../../domain/entities/FinancialGoal'
 import { UserRepository } from '../../../infra/api/userApi'
 import { FinancialGoalRepository } from '../../../infra/api/financialGoalApi'
+import { useCurrentUser } from '../../../shared/hooks/useCurrentUser'
 
 type FormState = {
     goalAmount: string
@@ -9,7 +10,7 @@ type FormState = {
 }
 
 export function useFinancialGoalsViewModel() {
-    const userId = 4 // <- substituir pelo contexto de autenticação no futuro
+    const { id: userId } = useCurrentUser() // agora vem do contexto
     const [goal, setGoal] = useState<FinancialGoal | null>(null)
     const [form, setForm] = useState<FormState>({ goalAmount: '', savedAmount: '' })
     const [editingId, setEditingId] = useState<number | null>(null)
@@ -36,7 +37,7 @@ export function useFinancialGoalsViewModel() {
             .catch(() => {
                 setError('Erro ao buscar metas financeiras.')
             })
-    }, [])
+    }, [userId])
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         setForm({ ...form, [e.target.name]: e.target.value })

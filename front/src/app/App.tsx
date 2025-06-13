@@ -14,7 +14,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/financial-goals" element={<FinancialGoalsPage />} />
-        <Route path='/acount-user' element={<AccountCardPage />} />
+        <Route path='/account-card' element={<AccountCardPage />} />
         <Route path="/user-profile" element={<UserProfilePage />} />
       </Routes>
     </Router>

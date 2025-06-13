@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { UserRepository } from '../../../infra/api/userApi'
+import { useCurrentUser } from '../../../shared/hooks/useCurrentUser' // importa o hook
 
 type UserBankData = {
     name: string
@@ -11,8 +12,8 @@ type UserBankData = {
 }
 
 export function useAccountCardViewModel() {
+    const { id: userId } = useCurrentUser() // pega o id do user logado
     const [data, setData] = useState<UserBankData | null>(null)
-    const userId = 4 // ← substituir futuramente pelo ID do usuário logado
 
     useEffect(() => {
         UserRepository.getById(userId)
@@ -35,7 +36,7 @@ export function useAccountCardViewModel() {
             .catch(() => {
                 console.error('Erro ao carregar dados bancários.')
             })
-    }, [])
+    }, [userId])
 
     return { data }
 }

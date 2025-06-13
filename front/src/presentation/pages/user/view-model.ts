@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { UserRepository } from '../../../infra/api/userApi'
+import { useCurrentUser } from '../../../shared/hooks/useCurrentUser'
 
 export type FormState = {
     id: number
@@ -16,7 +17,7 @@ export type FormState = {
 }
 
 export function useUserProfileViewModel() {
-    const userId = 4
+    const { id: userId } = useCurrentUser() // agora vem do contexto
     const [form, setForm] = useState<FormState>({
         id: userId,
         name: '',
@@ -82,7 +83,7 @@ export function useUserProfileViewModel() {
             .catch(() => {
                 setError('Erro ao carregar dados do usuário.')
             })
-    }, [])
+    }, [userId])
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -97,10 +98,9 @@ export function useUserProfileViewModel() {
             const payload = {
                 ...form,
                 password: form.password || undefined,
-
             }
             await UserRepository.update(userId, payload)
-            console.log(payload);
+            console.log(payload)
         } catch (err) {
             setError('Erro ao salvar alterações.')
             console.log('Deu ruim boy', err)
