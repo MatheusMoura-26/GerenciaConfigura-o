@@ -44,29 +44,29 @@ export const UserName = styled.div`
 `;
 
 export const Title = styled.h1`
-    font-size: 2.2rem; 
+    font-size: 2.2rem; /* Ajustado para se adequar ao lado da logo */
     font-weight: 700;
-    color: ${deepPurple}; 
-    margin-bottom: 0; 
-    text-align: center; 
+    color: ${deepPurple}; /* Roxo profundo para o título principal */
+    margin-bottom: 0; /* Removido margin-bottom para alinhar com a logo */
+    text-align: left; /* Alinhado à esquerda dentro do HeaderContainer */
 `;
 
 export const Section = styled.section`
-    background: ${white}; 
+    background: ${white}; /* Fundo das seções: Branco */
     border-radius: 0.7rem;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
     padding: 1.5rem 1.2rem;
     margin-bottom: 2rem;
-    border: 1px solid #e0e0e0; 
+    border: 1px solid #e0e0e0; /* Borda sutil para as seções */
 
     h2 {
-        font-size: 1.3rem; 
+        font-size: 1.3rem; /* Levemente maior e mais visível */
         font-weight: 600;
-        color: ${electricBlue}; 
+        color: ${electricBlue}; /* Azul elétrico para os subtítulos */
         margin-bottom: 1.2rem;
         letter-spacing: 0.5px;
         padding-bottom: 0.5rem;
-        border-bottom: 1px solid ${lightGray}; 
+        border-bottom: 1px solid ${lightGray}; /* Linha abaixo dos subtítulos */
     }
 `;
 
@@ -80,48 +80,48 @@ export const AccountRow = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 0.5rem; 
-    border-bottom: 1px dashed ${lightGray}; 
+    padding-bottom: 0.5rem; /* Adicionado um pouco de padding-bottom para separar as linhas */
+    border-bottom: 1px dashed ${lightGray}; /* Linha pontilhada para separar informações */
 
     &:last-child {
-        border-bottom: none; 
+        border-bottom: none; /* Remove a borda da última linha */
     }
 `;
 
 export const Label = styled.span`
-    color: ${darkText}; 
+    color: ${darkText}; /* Texto das labels em cinza escuro */
     font-weight: 500;
     font-size: 1rem;
 `;
 
 export const Value = styled.span`
-    color: ${deepPurple}; 
+    color: ${deepPurple}; /* Valores em roxo profundo para destaque */
     font-weight: 600;
     font-size: 1.05rem;
 `;
 
 export const Balance = styled(Value)`
-    color: ${mintGreen}; 
+    color: ${mintGreen}; /* Saldo em verde menta para indicar valor positivo */
     font-size: 1.15rem;
-    font-weight: 700; 
+    font-weight: 700; /* Mais negrito para o saldo */
 `;
 
 export const CardBox = styled.div`
-    background: linear-gradient(90deg, ${deepPurple} 60%, ${electricBlue} 100%); 
+    background: linear-gradient(90deg, ${deepPurple} 60%, ${electricBlue} 100%); /* Gradiente com roxo e azul elétrico */
     border-radius: 1rem;
-    padding: 1.5rem 1.8rem; 
+    padding: 1.5rem 1.8rem; /* Aumentado padding */
     color: ${white};
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    margin-top: 1rem; 
+    margin-top: 1rem; /* Espaço acima do cartão */
 `;
 
 export const CardNumber = styled.div`
-    font-size: 1.4rem; 
-    letter-spacing: 2.5px; 
-    font-family: 'Roboto Mono', monospace; 
+    font-size: 1.4rem; /* Um pouco maior para clareza */
+    letter-spacing: 2.5px; /* Mais espaçamento para os números do cartão */
+    font-family: 'Roboto Mono', monospace; /* Fonte monospace para números de cartão */
     margin-bottom: 0.7rem;
     font-weight: 500;
 `;
@@ -134,7 +134,7 @@ export const CardDetails = styled.div`
 
 export const SmallLabel = styled.div`
     font-size: 0.85rem;
-    color: #e0e0e0; 
+    color: #e0e0e0; /* Um cinza bem claro para labels pequenas do cartão */
     font-weight: 400;
 `;
 
@@ -145,10 +145,10 @@ export const CardValue = styled.div`
 `;
 
 export const Placeholder = styled.p`
-    color: ${placeholderGray}; 
+    color: ${placeholderGray}; /* Cinza para placeholders */
     font-size: 1rem;
     text-align: center;
-    padding: 20px; 
+    padding: 20px; /* Adicionado um pouco de padding */
 `;
 
 // Se você tiver botões de ação para a conta/cartão:
@@ -156,29 +156,29 @@ export const ActionButtons = styled.div`
     display: flex;
     gap: 1rem;
     margin-top: 1.5rem;
-    justify-content: center; 
-    flex-wrap: wrap; 
+    justify-content: center; /* Centraliza os botões */
+    flex-wrap: wrap; /* Permite que os botões quebrem a linha */
 
     button {
         background-color: ${electricBlue};
         color: ${white};
         padding: 0.75rem 1.5rem;
         border: none;
-        border-radius: 0.5rem; 
+        border-radius: 0.5rem; /* Um pouco mais arredondado */
         font-size: 1rem;
         cursor: pointer;
         transition: background-color 0.3s ease;
-        flex-grow: 1; 
-        min-width: 150px; 
+        flex-grow: 1; /* Faz com que os botões preencham o espaço */
+        min-width: 150px; /* Largura mínima para cada botão */
 
         &:hover {
             background-color: #0667b3;
         }
 
-        
+        /* Exemplo de um botão secundário (se houver) */
         &.secondary {
-            background-color: ${lightGray}; 
-            color: ${deepPurple}; 
+            background-color: ${lightGray}; /* Fundo cinza claro */
+            color: ${deepPurple}; /* Texto roxo */
             border: 1px solid ${deepPurple};
             &:hover {
                 background-color: #e0e0e0;

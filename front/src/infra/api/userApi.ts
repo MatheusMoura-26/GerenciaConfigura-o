@@ -41,4 +41,7 @@ export const UserRepository = {
       news: [],
     });
   },
+  async update(id: number, data: Partial<User>) {
+    return api.put(`/users/${id}`, data)
+  }
 };
