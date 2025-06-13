@@ -48,7 +48,7 @@ export const Title = styled.h1`
     font-weight: 700;
     color: ${deepPurple}; /* Roxo profundo para o título principal */
     margin-bottom: 0; /* Removido margin-bottom para alinhar com a logo */
-    text-align: left; /* Alinhado à esquerda dentro do HeaderContainer */
+    text-align: center; /* Alinhado à esquerda dentro do HeaderContainer */
 `;
 
 export const Section = styled.section`

@@ -27,6 +27,18 @@ export function FinancialGoalsPage() {
     } = useFinancialGoalsViewModel()
 
     return (
+
+        <div style={{ position: 'relative' }}>
+            <img
+                src="LOGO-removebg-preview.png"
+                alt="logo"
+                style={{
+                    position: 'absolute',
+                    top: '-70px',      // ajuste vertical
+                    left: '150px',    // "fora" do container à esquerda
+                    width: '250px',   // tamanho da logo
+                }}
+            />
         <Container>
             <Title>Metas Financeiras</Title>
             <Section>
@@ -84,5 +96,6 @@ export function FinancialGoalsPage() {
                 )}
             </Section>
         </Container>
+        </div>
     )
 }
