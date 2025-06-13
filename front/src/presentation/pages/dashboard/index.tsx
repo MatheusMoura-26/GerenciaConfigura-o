@@ -1,55 +1,74 @@
-import { useDashboardViewModel } from './view-model'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
-  DashboardContainer,
-  MainContent,
+  Container,
   Title,
-  Card,
-  NewsList,
-  NewsItem,
+  Section,
+  UserName,
+  Placeholder,
+  ActionButtons,
+  Label,
+  Value,
+  Row,
 } from './styles'
-import { Sidebar } from '../../components/sideBar'
+import { useDashboardViewModel } from './view-model'
 
 export function DashboardPage() {
-  const { user } = useDashboardViewModel()
+  const navigate = useNavigate()
+  const { user, loading } = useDashboardViewModel()
 
   return (
-    <DashboardContainer>
-      <Sidebar />
-      <MainContent>
-        <Title>Bem-vindo, {user?.name}!</Title>
+    <Container>
+      <UserName>Bem-vindo, {user?.name ?? 'Usuário'}!</UserName>
+      <Title>Painel Principal</Title>
 
-        <Card>
-          <h3>Saldo da conta</h3>
-          <p>R$ {user?.account?.balance ?? 0}</p>
-        </Card>
+      <Section>
+        <h2>Acessos Rápidos</h2>
 
-        <Card>
-          <h3>Limite disponível do cartão</h3>
-          <p>R$ {user?.card?.limit ?? 0}</p>
-        </Card>
+        <ActionButtons>
+          <button onClick={() => navigate('/user-profile')}>
+            Perfil do Usuário
+          </button>
+          <button onClick={() => navigate('/account-card')}>
+            Conta e Cartão
+          </button>
+          <button onClick={() => navigate('/financial-goals')}>
+            Meta Financeira
+          </button>
+        </ActionButtons>
+      </Section>
 
-        {user?.financialGoal && (
-          <Card>
-            <h3>Meta financeira</h3>
-            <p>
-              {user.financialGoal.name}: R$ {user.financialGoal.savedAmount} / R$ {user.financialGoal.goalAmount}
-            </p>
-          </Card>
+      <Section>
+        <h2>Resumo</h2>
+
+        {loading || !user ? (
+          <Placeholder>Carregando dados...</Placeholder>
+        ) : (
+          <>
+            <Row>
+              <Label>Nome:</Label>
+              <Value>{user.name}</Value>
+            </Row>
+            <Row>
+              <Label>Telefone:</Label>
+              <Value>{user.phone}</Value>
+            </Row>
+            <Row>
+              <Label>Meta Financeira:</Label>
+              <Value>
+                R${' '}
+                {user.financialGoal?.goalAmount?.toLocaleString('pt-BR', {
+                  minimumFractionDigits: 2,
+                }) ?? '0,00'}
+              </Value>
+            </Row>
+            <Row>
+              <Label>Número do Cartão:</Label>
+              <Value>{user.card?.number ?? '---'}</Value>
+            </Row>
+          </>
         )}
-
-        <Card>
-          <h3>Notícias recentes</h3>
-          <NewsList>
-            {user?.news?.length > 0 ? (
-              user.news.map((n: any, i: number) => (
-                <NewsItem key={i}>{n}</NewsItem>
-              ))
-            ) : (
-              <p>Nenhuma notícia recente.</p>
-            )}
-          </NewsList>
-        </Card>
-      </MainContent>
-    </DashboardContainer>
+      </Section>
+    </Container>
   )
 }
