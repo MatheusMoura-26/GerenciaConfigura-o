@@ -16,13 +16,7 @@ export function RegisterPage() {
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-             <img  src="LOGO-removebg-preview.png"
-                alt="logo" style={{
-                    position: 'absolute',
-                    top: '-80px',
-                    left: '775px',
-                    width: '250px',   // tamanho da logo
-                }}/>
+
         <Title>Cadastro</Title>
         <Input name="name" onChange={handleChange} placeholder="Nome completo" />
         <Input name="cpf" onChange={handleChange} placeholder="CPF" />
