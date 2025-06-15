@@ -15,13 +15,6 @@ export function LoginPage() {
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-        <img  src="LOGO-removebg-preview.png"
-                alt="logo" style={{
-                    position: 'absolute',
-                    top: '60px',
-                    left: '775px',
-                    width: '250px',   // tamanho da logo
-                }}/>
         <Title>Login</Title>
         <Input name="email" placeholder="Email" onChange={handleChange} />
         <Input

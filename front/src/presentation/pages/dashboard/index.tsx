@@ -19,11 +19,10 @@ export function DashboardPage() {
 
   return (
     <Container>
-      <UserName>Bem-vindo, {user?.name ?? 'Usuário'}!</UserName>
-      <Title>Painel Principal</Title>
+      <UserName>Bem-vindo(a), {user?.name ?? 'Usuário'}!</UserName>
 
       <Section>
-        <h2>Acessos Rápidos</h2>
+        <h1>Acesso Rápido</h1>
 
         <ActionButtons>
           <button onClick={() => navigate('/user-profile')}>

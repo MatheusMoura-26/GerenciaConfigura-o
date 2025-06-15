@@ -3,6 +3,7 @@ import { FinancialGoal } from '../../../domain/entities/FinancialGoal'
 import { UserRepository } from '../../../infra/api/userApi'
 import { FinancialGoalRepository } from '../../../infra/api/financialGoalApi'
 import { useCurrentUser } from '../../../shared/hooks/useCurrentUser'
+import { useNavigate } from 'react-router-dom'
 
 type FormState = {
     goalAmount: string
@@ -10,6 +11,7 @@ type FormState = {
 }
 
 export function useFinancialGoalsViewModel() {
+    const navigate = useNavigate()
     const { id: userId } = useCurrentUser() // agora vem do contexto
     const [goal, setGoal] = useState<FinancialGoal | null>(null)
     const [form, setForm] = useState<FormState>({ goalAmount: '', savedAmount: '' })
@@ -56,8 +58,10 @@ export function useFinancialGoalsViewModel() {
         try {
             if (editingId) {
                 await FinancialGoalRepository.update(editingId, data)
+                navigate('/dashboard')
             } else {
                 await FinancialGoalRepository.create(data)
+                navigate('/dashboard')
             }
 
             const res = await UserRepository.getById(userId)

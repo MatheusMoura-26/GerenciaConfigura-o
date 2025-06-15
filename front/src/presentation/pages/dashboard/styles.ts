@@ -43,11 +43,11 @@ export const Section = styled.section`
   margin-bottom: 2rem;
   border: 1px solid #e0e0e0;
 
-  h2 {
+  h1 {
     font-size: 1.3rem;
     font-weight: 600;
     color: ${electricBlue};
-    margin-bottom: 1.2rem;
+    //margin-bottom: 1.2rem;
     letter-spacing: 0.5px;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid ${lightGray};

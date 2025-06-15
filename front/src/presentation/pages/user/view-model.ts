@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { UserRepository } from '../../../infra/api/userApi'
 import { useCurrentUser } from '../../../shared/hooks/useCurrentUser'
+import { useNavigate } from 'react-router-dom'
+
 
 export type FormState = {
     id: number
@@ -17,6 +19,7 @@ export type FormState = {
 }
 
 export function useUserProfileViewModel() {
+    const navigate = useNavigate()
     const { id: userId } = useCurrentUser() // agora vem do contexto
     const [form, setForm] = useState<FormState>({
         id: userId,
@@ -100,7 +103,8 @@ export function useUserProfileViewModel() {
                 password: form.password || undefined,
             }
             await UserRepository.update(userId, payload)
-            console.log(payload)
+            // ✅ Redirecionar após sucesso
+            navigate('/dashboard')
         } catch (err) {
             setError('Erro ao salvar alterações.')
             console.log('Deu ruim boy', err)

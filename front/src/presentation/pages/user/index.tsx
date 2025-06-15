@@ -23,17 +23,6 @@ export function UserProfilePage() {
 
     return (
 
-        <div style={{ position: 'relative' }}>
-            <img
-                src="LOGO-removebg-preview.png"
-                alt="logo"
-                style={{
-                    position: 'absolute',
-                    top: '-40px',      // ajuste vertical
-                    left: '280px',    // "fora" do container à esquerda
-                    width: '250px',   // tamanho da logo
-                }}
-            />
         <Container>
             <Title>Perfil do Usuário</Title>
 
@@ -79,6 +68,5 @@ export function UserProfilePage() {
                 </Form>
             </Section>
         </Container>
-        </div>
     )
 }
