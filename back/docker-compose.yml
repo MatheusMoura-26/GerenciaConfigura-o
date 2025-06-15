@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:16
+    container_name: postgres
+    environment:
+      POSTGRES_DB: apibancaria
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+  api:
+    build: .
+    container_name: apibancaria
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/apibancaria
+      POSTGRESUSER: user
+      POSTGRESPASSWORD: 123456
+      SPRING_PROFILES_ACTIVE: prod
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

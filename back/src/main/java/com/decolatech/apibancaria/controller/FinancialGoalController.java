@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Meta Financeira")
 @RestController
 @RequestMapping("v1/financial-goal")
+@CrossOrigin(origins = "*")
 public class FinancialGoalController {
 
     private final IFinancialGoalService financialService;
